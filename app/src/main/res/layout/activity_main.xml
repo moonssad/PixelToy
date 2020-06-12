@@ -7,12 +7,36 @@
     android:orientation="vertical"
     >
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="按一下" />
+    <ImageView
+        android:id="@+id/button_previous"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:src="@drawable/previous_draw"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        />
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:id="@+id/button_next"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/button_previous"
+        android:src="@drawable/next_draw"
+        />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/more"
+        android:id="@+id/more"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        />
 
     <com.xiniu.myapplication.PixImage.ColorSelectView
         android:id="@+id/color_choose"
@@ -24,10 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/color_choose"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/button_previous"
         android:layout_margin="10dp"
-
         />
-
-
 </RelativeLayout>
