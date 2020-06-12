@@ -1,80 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:androud="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/relative"
-
+    android:orientation="vertical"
     >
 
-    <!--<com.kangear.cheji.Flower-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_centerInParent="true"-->
-    <!--/>-->
-    <!--    <com.kangear.cheji.flyCircle.CircleItemSurface-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_centerInParent="true"-->
-    <!--    />-->
-
-
-    <!--    <com.kangear.cheji.gradientView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_centerInParent="true"-->
-    <!--        android:id="@+id/qw"-->
-    <!--        />-->
-
-    <!--    <com.kangear.cheji.CircleView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent" />-->
-
-    <!--    <com.kangear.cheji.HuanVIew-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        />-->
-
-    <!--    <com.kangear.cheji.bdgls.Pythagoras-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="#e0000000"-->
-    <!--        android:id="@+id/circle_surface"-->
-    <!--        />-->
-    <!--    <com.kangear.cheji.directLine.LineVIew-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="#e0000000"-->
-    <!--        android:id="@+id/circle_surface"-->
-    <!--        />-->
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="按一下"
-        />
+        android:text="按一下" />
 
 
     <com.xiniu.myapplication.PixImage.ColorSelectView
+        android:id="@+id/color_choose"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/color_choose"
-
-        />
+        android:layout_alignParentBottom="true" />
 
     <com.xiniu.myapplication.PixImage.CheckView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/button"
         android:layout_above="@+id/color_choose"
+        android:layout_below="@+id/button"
         android:layout_margin="10dp"
 
         />
 
-    <!--    <com.kangear.cheji.PixImage.ColorPick.ColorPicker-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"/>-->
 
 </RelativeLayout>
