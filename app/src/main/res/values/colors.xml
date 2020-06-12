@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="orange">#FF9600</color>
+    <color name="aqua">#02D1AC</color>
+    <color name="yellow">#FFD200</color>
+    <color name="pink">#FF3892</color>
+    <color name="transparent">#00000000</color>
+    <color name="cardview_initial_background">#71C3DE</color>
+    <color name="ezled_black">#ff000000</color>
+    <color name = "white">#ffffffff</color>
+    <color name="red">#ffff0000</color>
+    <color name="green">#ff00ff00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="gray">#FF999999</color>
+
+
+
+
+
+
+    <array name="color_array">
+        <item>@color/colorPrimary</item>
+        <item>@color/colorAccent</item>
+        <item>@color/orange</item>
+        <item>@color/aqua</item>
+        <item>@color/yellow</item>
+        <item>@color/blue</item>
+        <item>@color/green</item>
+        <item>@color/pink</item>
+    </array>
+
+    <array name="pix_color">
+        <item>@color/ezled_black</item>
+        <item>@color/white</item>
+        <item>@color/red</item>
+        <item>@color/green</item>
+        <item>@color/blue</item>
+        <item>@color/yellow</item>
+        <item>@color/orange</item>
+        <item>@color/pink</item>
+    </array>
+</resources>
