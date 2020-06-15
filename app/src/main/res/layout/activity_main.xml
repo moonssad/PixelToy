@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/gray"
     >
 
     <ImageView
@@ -50,5 +51,6 @@
         android:layout_above="@+id/color_choose"
         android:layout_below="@+id/button_previous"
         android:layout_margin="10dp"
+
         />
 </RelativeLayout>
