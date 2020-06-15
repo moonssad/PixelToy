@@ -2,6 +2,7 @@ package com.xiniu.myapplication.PixImage;
 
 import android.graphics.Bitmap;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,6 +24,7 @@ public class util {
     public util(){}
 
     public  void saveImageToGallery( Bitmap bmp) {
+        Log.e("saveImageToGallery:", "bmp|");
         // 首先保存图片
         File appDir = new File(Environment.getExternalStorageDirectory(), "jx");
         if (!appDir.exists()) {

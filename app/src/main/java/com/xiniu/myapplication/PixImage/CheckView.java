@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,6 +16,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.xiniu.myapplication.R;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 
 /**
@@ -38,7 +43,6 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
     public ColorItemPool colorItem;
     private int orientation = 3;
     private Bitmap bitmap;
-
 
 
     public CheckView(Context context) {
@@ -68,7 +72,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
         super.onSizeChanged(w, h, oldw, oldh);
         width = w;
         height = h;
-        bitmap =  Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+
         widthNum = width / radius;
         heightNum = height / radius;
         colorItem.init(widthNum + 1, heightNum + 1);
@@ -165,8 +169,9 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
 
     //保存图片那就再画一遍.
     public void saveImage() {
-     Canvas canvas = new Canvas(bitmap);
-        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.GRAY);
         for (int i = 0; i < widthNum; i++) {
             for (int i1 = 0; i1 < heightNum; i1++) {
                 canvas.drawRect(i * radius, i1 * radius, i * radius + radius, i1 * radius + radius, mPaint);
@@ -180,7 +185,8 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
         }
-        util utils =new util();
+        util utils = new util();
         utils.saveImageToGallery(bitmap);
     }
+
 }
