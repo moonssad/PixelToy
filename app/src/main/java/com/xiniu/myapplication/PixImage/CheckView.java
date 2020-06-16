@@ -181,7 +181,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     //保存图片那就再画一遍.
-    public void saveImage() {
+    public void saveImage(boolean ShareFileUtils) {
         bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(Color.GRAY);
@@ -199,7 +199,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
         util utils = new util();
-        utils.saveImageToGallery(bitmap);
+        utils.saveImageToGallery(bitmap,ShareFileUtils);
     }
 
     public void previous() {

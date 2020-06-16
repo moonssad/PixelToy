@@ -45,6 +45,8 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true" />
 
+
+
     <com.xiniu.myapplication.PixImage.CheckView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

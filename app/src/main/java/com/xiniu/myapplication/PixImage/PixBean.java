@@ -9,7 +9,7 @@ package com.xiniu.myapplication.PixImage;
  * 更新描述：
  */
 public class PixBean {
-    int color;
+    int color; //color =-1；表示删除
 
     public PixBean() {
     }

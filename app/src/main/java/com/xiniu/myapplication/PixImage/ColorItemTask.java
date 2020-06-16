@@ -64,12 +64,14 @@ public class ColorItemTask {
      * @param value
      */
     public void push(ColorItem[] value) {
-        //首先判断索引count是否等于容量capacity,如果等于就进行扩容
-        if (count == capacity) {
-            extendCapacity();
+        if (value.length > 0) {
+            //首先判断索引count是否等于容量capacity,如果等于就进行扩容
+            if (count == capacity) {
+                extendCapacity();
+            }
+            //否则进行存栈
+            ColorItemTask[count++] = value;
         }
-        //否则进行存栈
-        ColorItemTask[count++] = value;
     }
 
     /**

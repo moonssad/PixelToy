@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.xiniu.myapplication.MyApplication;
 import com.xiniu.myapplication.Utils.ShareFileUtils;
+import com.xiniu.myapplication.Utils.ToastUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,9 +25,10 @@ public class util {
 
     //保存bitmap图片
 
-    public util(){}
+    public util() {
+    }
 
-    public  void saveImageToGallery( Bitmap bmp) {
+    public void saveImageToGallery(Bitmap bmp, boolean shareImage) {
         Log.e("saveImageToGallery:", "bmp|");
         // 首先保存图片
         File appDir = new File(Environment.getExternalStorageDirectory(), "jx");
@@ -40,8 +42,13 @@ public class util {
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
-            Log.e("saveImageToGallery:", ""+file.toString());
-            ShareFileUtils.shareImage(MyApplication.getContext(),file.toString());
+            Log.e("saveImageToGallery:", "" + file.toString());
+
+            if (shareImage) {
+                ShareFileUtils.shareImage(MyApplication.getContext(), file.getPath());
+            }else{
+                ToastUtils.showToast(MyApplication.getContext(), String.format("图片已经保存到%s中", file.getPath()));
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

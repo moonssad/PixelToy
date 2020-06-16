@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.Formatter;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 
 import com.xiniu.myapplication.PixImage.CheckView;
 
@@ -30,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         more.setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -41,11 +42,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 checkView.next();
                 break;
             case R.id.more:
-                checkView.saveImage();
+                addPopWindow();
                 break;
             default:
                 break;
         }
     }
 
+    public void addPopWindow() {
+        final PopupWindow popupWindow = new PopupWindow(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.popwindow_save_share, null);
+        ImageView saveImage = (ImageView) view.findViewById(R.id.save);
+        ImageView shareImage = (ImageView) view.findViewById(R.id.share);
+        saveImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkView.saveImage(false);
+                popupWindow.dismiss();
+            }
+        });
+        shareImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkView.saveImage(true);
+                popupWindow.dismiss();
+            }
+        });
+        popupWindow.setContentView(view);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.showAsDropDown(more);
+    }
 }
