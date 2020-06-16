@@ -27,9 +27,7 @@ public class ShareFileUtils {
         if (TextUtils.isEmpty(path)) {
             return;
         }
-
         checkFileUriExposure();
-
         Intent it = new Intent(Intent.ACTION_SEND);
         it.putExtra(Intent.EXTRA_TEXT, path);
         it.setType("text/plain");
@@ -46,9 +44,7 @@ public class ShareFileUtils {
         if (TextUtils.isEmpty(path)) {
             return;
         }
-
         checkFileUriExposure();
-
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(path)));  //传输图片或者文件 采用流的方式

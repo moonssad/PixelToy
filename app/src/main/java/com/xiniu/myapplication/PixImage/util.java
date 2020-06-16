@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
 
+import com.xiniu.myapplication.MyApplication;
+import com.xiniu.myapplication.ShareFileUtils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -37,6 +40,8 @@ public class util {
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
+            Log.e("saveImageToGallery:", ""+file.toString());
+            ShareFileUtils.shareImage(MyApplication.getContext(),file.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
