@@ -1,4 +1,4 @@
-package com.xiniu.myapplication;
+package com.xiniu.myapplication.Utils;
 
 import android.content.ComponentName;
 import android.content.Context;

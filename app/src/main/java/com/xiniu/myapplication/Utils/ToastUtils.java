@@ -1,4 +1,4 @@
-package com.xiniu.myapplication;
+package com.xiniu.myapplication.Utils;
 
 import android.content.Context;
 import android.widget.Toast;

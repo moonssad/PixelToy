@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
-import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -17,9 +16,6 @@ import android.view.SurfaceView;
 
 import com.xiniu.myapplication.R;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 
 
 /**
@@ -144,6 +140,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
+                Log.e("onTouchEvent:", "down+move");
                 if (xPosition >= 0 && xPosition < widthNum && yPosition >= 0 && yPosition < heightNum) {
                     color.setWidth(xPosition * radius);
                     color.setHeight(yPosition * radius);
@@ -153,12 +150,13 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
                 }
                 return true;
             case MotionEvent.ACTION_UP:
+                Log.e("onTouchEvent:", "up");
                 break;
             default:
                 break;
 
         }
-        return super.onTouchEvent(event);
+        return true;
     }
 
     @Override

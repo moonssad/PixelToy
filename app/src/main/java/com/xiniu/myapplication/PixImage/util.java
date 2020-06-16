@@ -5,7 +5,7 @@ import android.os.Environment;
 import android.util.Log;
 
 import com.xiniu.myapplication.MyApplication;
-import com.xiniu.myapplication.ShareFileUtils;
+import com.xiniu.myapplication.Utils.ShareFileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
