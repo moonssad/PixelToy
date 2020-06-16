@@ -14,7 +14,6 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.xiniu.myapplication.ColorItemTask;
 import com.xiniu.myapplication.MyApplication;
 import com.xiniu.myapplication.R;
 import com.xiniu.myapplication.Utils.ToastUtils;
@@ -42,6 +41,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
     private int widthNum, heightNum;
     public ColorItemPool colorItem;
     public ColorItemTask itemTasks;
+    public ColorItemTask popItemTasks;
     private List<ColorItem> items;
     private int orientation = 3;
     private Bitmap bitmap;
@@ -99,6 +99,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
         mHolder.addCallback(this);
         colorItem = new ColorItemPool();
         itemTasks = new ColorItemTask();
+        popItemTasks = new ColorItemTask();
         items = new ArrayList<>();
         this.setZOrderOnTop(true);
         this.getHolder().setFormat(PixelFormat.TRANSLUCENT);
@@ -156,6 +157,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
                     color.setColor(PixUtils.getInstance().getPixBean().getColor());
                     colorItem.setColorItems(xPosition, yPosition, color);
                     items.add(color);
+                    popItemTasks.clear();
                     Draw();
                 }
                 return true;
@@ -207,6 +209,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
                 for (ColorItem item : items) {
                     colorItem.removeColorItems(item.getWidth() / radius, item.getHeight() / radius);
                 }
+                popItemTasks.push(items);
                 Draw();
             }
         } catch (Exception e) {
@@ -215,7 +218,18 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void next() {
-
+        try {
+            ColorItem[] items = popItemTasks.pop();
+            if (items.length > 0) {
+                for (ColorItem item : items) {
+                    colorItem.setColorItems(item.getWidth() / radius, item.getHeight() / radius,item);
+                }
+                itemTasks.push(items);
+                Draw();
+            }
+        } catch (Exception e) {
+            ToastUtils.showToast(MyApplication.getContext(), MyApplication.getContext().getString(R.string.not_item_task));
+        }
 
     }
 }

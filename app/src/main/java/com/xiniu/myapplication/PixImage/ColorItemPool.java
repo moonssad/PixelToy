@@ -26,8 +26,8 @@ public class ColorItemPool {
         Log.e("setColorItems:", "X:" + X + "Y:" + Y);
     }
 
-    public void removeColorItems(int X,int Y){
-        items[X][Y] =null;
+    public void removeColorItems(int X, int Y) {
+        items[X][Y] = null;
     }
 
     public ColorItem[][] getColorItems() {

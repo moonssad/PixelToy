@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         previous = (ImageView) findViewById(R.id.button_previous);
         next = (ImageView) findViewById(R.id.button_next);
         more = (ImageView) findViewById(R.id.more);
-        checkView =(CheckView)findViewById(R.id.check_view);
+        checkView = (CheckView) findViewById(R.id.check_view);
         previous.setOnClickListener(this);
         next.setOnClickListener(this);
         more.setOnClickListener(this);
@@ -35,15 +35,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_previous:
-                //todo 设置上一步
                 checkView.previous();
                 break;
             case R.id.button_next:
-                //todo 设置下一步的操作
+                checkView.next();
                 break;
             case R.id.more:
                 checkView.saveImage();
-                //todo 保存数据，分享数据呀啥的，但是现在先试试保存图片是否可行。
                 break;
             default:
                 break;

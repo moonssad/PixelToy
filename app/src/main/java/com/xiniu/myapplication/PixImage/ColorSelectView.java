@@ -10,8 +10,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.xiniu.myapplication.MyApplication;
 import com.xiniu.myapplication.PixImage.ColorPick.MyCustomDialog;
 import com.xiniu.myapplication.R;
 
