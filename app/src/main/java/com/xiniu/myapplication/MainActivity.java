@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.button_previous:
                 //todo 设置上一步
+                checkView.previous();
                 break;
             case R.id.button_next:
                 //todo 设置下一步的操作

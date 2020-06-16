@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="not_item_task">已经没有东西可以返回啦</string>
 </resources>

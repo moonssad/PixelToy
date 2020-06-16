@@ -73,8 +73,8 @@ public class MyCustomDialog extends Dialog {
                 @Override
                 public void onColorChoosed(int color) {
                     mNestedScrollView.setBackgroundColor(color);
-                    if (listener!=null){
-                        listener.chooseColor(dialog,color);
+                    if (listener != null) {
+                        listener.chooseColor(dialog, color);
                     }
                 }
             });
@@ -104,7 +104,8 @@ public class MyCustomDialog extends Dialog {
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
         }
-       public interface onColorChangedListener {
+
+        public interface onColorChangedListener {
             void chooseColor(Dialog dialog, int color);
         }
     }

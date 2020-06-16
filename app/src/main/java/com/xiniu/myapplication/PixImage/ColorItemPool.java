@@ -12,21 +12,27 @@ import android.util.Log;
  */
 public class ColorItemPool {
     public ColorItem[][] items;
-    public ColorItemPool(){}
 
-    public void init (int widthNum,int heightNum){
-            items =new ColorItem[widthNum][heightNum];
-            Log.e("init:", ""+widthNum+"|"+heightNum);
+    public ColorItemPool() {
     }
-    public void setColorItems(int X,int Y,ColorItem colorItem){
+
+    public void init(int widthNum, int heightNum) {
+        items = new ColorItem[widthNum][heightNum];
+        Log.e("init:", "" + widthNum + "|" + heightNum);
+    }
+
+    public void setColorItems(int X, int Y, ColorItem colorItem) {
         items[X][Y] = colorItem;
-        Log.e("setColorItems:", "X:"+X+"Y:"+Y);
+        Log.e("setColorItems:", "X:" + X + "Y:" + Y);
     }
 
-    public ColorItem[][] getColorItems(){
+    public void removeColorItems(int X,int Y){
+        items[X][Y] =null;
+    }
+
+    public ColorItem[][] getColorItems() {
         return items;
     }
-
 
 
 }

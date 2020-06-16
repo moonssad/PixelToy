@@ -14,8 +14,13 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.xiniu.myapplication.ColorItemTask;
+import com.xiniu.myapplication.MyApplication;
 import com.xiniu.myapplication.R;
+import com.xiniu.myapplication.Utils.ToastUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,7 +30,6 @@ import com.xiniu.myapplication.R;
  * 更新者：
  * 更新时间：
  * 更新描述：
- * item.add()yaogai
  */
 public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -37,6 +41,8 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
     private int radius = 50;
     private int widthNum, heightNum;
     public ColorItemPool colorItem;
+    public ColorItemTask itemTasks;
+    private List<ColorItem> items;
     private int orientation = 3;
     private Bitmap bitmap;
 
@@ -92,6 +98,8 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
         mHolder = this.getHolder();
         mHolder.addCallback(this);
         colorItem = new ColorItemPool();
+        itemTasks = new ColorItemTask();
+        items = new ArrayList<>();
         this.setZOrderOnTop(true);
         this.getHolder().setFormat(PixelFormat.TRANSLUCENT);
     }
@@ -134,6 +142,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.e("onTouchEvent:", "onTouchEvent");
         ColorItem color = new ColorItem();
         int xPosition = (int) (event.getX() / radius);
         int yPosition = (int) (event.getY() / radius);
@@ -146,11 +155,15 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
                     color.setHeight(yPosition * radius);
                     color.setColor(PixUtils.getInstance().getPixBean().getColor());
                     colorItem.setColorItems(xPosition, yPosition, color);
+                    items.add(color);
                     Draw();
                 }
                 return true;
             case MotionEvent.ACTION_UP:
                 Log.e("onTouchEvent:", "up");
+                ColorItem[] itemss = items.toArray(new ColorItem[items.size()]);
+                itemTasks.push(itemss);
+                items.clear();
                 break;
             default:
                 break;
@@ -187,4 +200,22 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
         utils.saveImageToGallery(bitmap);
     }
 
+    public void previous() {
+        try {
+            ColorItem[] items = itemTasks.pop();
+            if (items.length > 0) {
+                for (ColorItem item : items) {
+                    colorItem.removeColorItems(item.getWidth() / radius, item.getHeight() / radius);
+                }
+                Draw();
+            }
+        } catch (Exception e) {
+            ToastUtils.showToast(MyApplication.getContext(), MyApplication.getContext().getString(R.string.not_item_task));
+        }
+    }
+
+    public void next() {
+
+
+    }
 }
