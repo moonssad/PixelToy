@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    //myPop.showAsDropDown(cvMain, (cvMain.getWidth() - myPop.getContentView().getMeasuredWidth()) / 2,
+    //
+    //-(cvMain.getHeight() + myPop.getContentView().getMeasuredHeight()));
     public void addPopWindow() {
         final PopupWindow popupWindow = new PopupWindow(this);
         View view = LayoutInflater.from(this).inflate(R.layout.popwindow_save_share, null);
@@ -70,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         popupWindow.setContentView(view);
         popupWindow.setOutsideTouchable(true);
-        popupWindow.showAsDropDown(more);
+        popupWindow.setAnimationStyle(R.style.anim_slide_in);
+        popupWindow.showAsDropDown(more,(more.getWidth()-popupWindow.getContentView().getMeasuredWidth()),
+                -(more.getHeight()+popupWindow.getContentView().getMeasuredHeight()));
     }
 }

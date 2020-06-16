@@ -7,10 +7,17 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <!--<item name="android:windowFullscreen">true</item>-->
         <item name="windowNoTitle">true</item>
+
+    </style>
+
+    <style name="anim_slide_in">
+        <item name="android:windowEnterAnimation">@anim/slide_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
 
     </style>
 </resources>

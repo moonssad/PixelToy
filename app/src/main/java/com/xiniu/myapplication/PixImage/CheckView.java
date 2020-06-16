@@ -207,6 +207,7 @@ public class CheckView extends SurfaceView implements SurfaceHolder.Callback {
             ColorItem[] items = itemTasks.pop();
             if (items.length > 0) {
                 for (ColorItem item : items) {
+                    Log.e("previous:", "item");
                     colorItem.removeColorItems(item.getWidth() / radius, item.getHeight() / radius);
                 }
                 popItemTasks.push(items);
